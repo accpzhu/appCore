@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)http://commons.apache.org/proper/commons-dbutils/examples.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Date-Revision-yyyymmdd" content="20170720">
+    <meta http-equiv="Content-Language" content="en">
+    <title>DbUtils – JDBC Utility Component -- Examples</title>
+
+  <link rel="stylesheet" href="./DbUtils – JDBC Utility Component -- Examples_files/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="./DbUtils – JDBC Utility Component -- Examples_files/site.css" type="text/css">
+    <link rel="stylesheet" href="./DbUtils – JDBC Utility Component -- Examples_files/print.css" media="print">
+
+  <script type="text/javascript" src="./DbUtils – JDBC Utility Component -- Examples_files/jquery.min.js"></script>
+  <script type="text/javascript" src="./DbUtils – JDBC Utility Component -- Examples_files/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./DbUtils – JDBC Utility Component -- Examples_files/prettify.min.js"></script>
+  <script type="text/javascript" src="./DbUtils – JDBC Utility Component -- Examples_files/site.js"></script>
+
+                            
+<link rel="stylesheet" href="./DbUtils – JDBC Utility Component -- Examples_files/prettify.css" media="all" type="text/css">                                
+<script src="./DbUtils – JDBC Utility Component -- Examples_files/prettify.js" type="text/javascript"></script>                                
+<script type="text/javascript">window.onload=function() {
+              prettyPrint();
+          }</script>                  
+      </head>
+
+  <body class="composite">
+                          <a href="http://commons.apache.org/" id="bannerLeft" title="Apache Commons logo">
+                                                                                        <img class="logo-left" src="./DbUtils – JDBC Utility Component -- Examples_files/commons-logo.png" alt="Apache Commons logo">
+                </a>
+                                              <a href="http://commons.apache.org/proper/commons-dbutils/index.html" id="bannerRight">
+                                                                                                <img class="logo-right" src="./DbUtils – JDBC Utility Component -- Examples_files/logo.png" alt="Commons DbUtils">
+                </a>
+          <div class="clear"></div>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="https://commons.apache.org/proper/commons-dbutils/">Apache Commons DbUtils ™</a>
+          <ul class="nav">      
+                    
+            <li id="publishDate">Last Published: 20 July 2017</li>
+      <li class="divider">|</li> <li id="projectVersion">Version: 1.7</li>
+  </ul>
+                    <div class="pull-right">  <ul class="nav">
+            <li>
+                  <a href="http://www.apachecon.com/" class="externalLink" title="ApacheCon">
+    ApacheCon</a>
+      </li>
+          <li>
+                  <a href="http://www.apache.org/" class="externalLink" title="Apache">
+    Apache</a>
+      </li>
+          <li>
+                  <a href="http://commons.apache.org/" class="externalLink" title="Commons">
+    Commons</a>
+      </li>
+    </ul>
+</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <table class="layout-table">
+        <tbody><tr>
+          <td class="sidebar">
+            <div class="well sidebar-nav">
+                    <ul class="nav nav-list">
+                                  <li class="nav-header">DbUtils</li>
+                                        <li class="none">
+                  <a href="http://commons.apache.org/proper/commons-dbutils/index.html" title="Overview">
+    Overview</a>
+          </li>
+                             <li class="none">
+                  <a href="http://commons.apache.org/dbutils/download_dbutils.cgi" class="externalLink" title="Download">
+    Download</a>
+          </li>
+                               <li class="none active">
+                  <a href="http://commons.apache.org/proper/commons-dbutils/examples.html" title="Examples">
+    Examples</a>
+          </li>
+                             <li class="none">
+                  <a href="http://commons.apache.org/proper/commons-dbutils/changes-report.html" title="Release Notes">
+    Release Notes</a>
+          </li>
+                             <li class="none">
+                  <a href="http://commons.apache.org/proper/commons-dbutils/dependencies.html" title="Dependencies">
+    Dependencies</a>
+          </li>
+                             <li class="none">
+                  <a href="http://wiki.apache.org/commons/DbUtils" class="externalLink" title="Wiki">
+    Wiki</a>
+          </li>
+                 </ul>
+      <ul class="nav nav-list">
+                                        <li class="nav-header"><i class="icon-cog"></i>Development</li>
+                                        <li class="none">
+                  <a href="http://commons.apache.org/proper/commons-dbutils/mail-lists.html" title="Mailing Lists">
+    Mailing Lists</a>
+          </li>
+                             <li class="none">
+                  <a href="http://commons.apache.org/proper/commons-dbutils/issue-tracking.html" title="Issue Tracking">
+    Issue Tracking</a>
+          </li>
+                             <li class="none">
+                  <a href="http://commons.apache.org/proper/commons-dbutils/source-repository.html" title="Source Repository">
+    Source Repository</a>
+          </li>
+                             <li class="none">
+                  <a href="http://commons.apache.org/proper/commons-dbutils/building.html" title="Building">
+    Building</a>
+          </li>
+                             <li class="none">
+                  <a href="http://commons.apache.org/proper/commons-dbutils/apidocs/index.html" title="Javadoc 1.7">
+    Javadoc 1.7</a>
+          </li>
+                             <li class="none">
+                  <a href="http://commons.apache.org/proper/commons-dbutils/archives/1.6/apidocs/index.html" title="Javadoc 1.6">
+    Javadoc 1.6</a>
+          </li>
+                 </ul>
+      <ul class="nav nav-list">
+                                        <li class="nav-header"><i class="icon-info-sign"></i>Project Documentation</li>
+                                                                                                                                                                                                                                                                              <li class="collapsed">
+                  <a href="http://commons.apache.org/proper/commons-dbutils/project-info.html" title="Project Information">
+    Project Information</a>
+                    </li>
+                                                                                                                                                                                                                                                                                     <li class="collapsed">
+                  <a href="http://commons.apache.org/proper/commons-dbutils/project-reports.html" title="Project Reports">
+    Project Reports</a>
+                    </li>
+                 </ul>
+      <ul class="nav nav-list">
+                                  <li class="nav-header">Commons</li>
+                                        <li class="none">
+                  <a href="http://commons.apache.org/" class="externalLink" title="Home">
+    Home</a>
+          </li>
+                             <li class="none">
+                  <a href="http://www.apache.org/licenses/" class="externalLink" title="License">
+    License</a>
+          </li>
+                                                                               <li class="collapsed">
+                  <a href="http://commons.apache.org/components.html" class="externalLink" title="Components">
+    Components</a>
+                    </li>
+                                                                               <li class="collapsed">
+                  <a href="http://commons.apache.org/sandbox/index.html" class="externalLink" title="Sandbox">
+    Sandbox</a>
+                    </li>
+                                                                               <li class="collapsed">
+                  <a href="http://commons.apache.org/dormant/index.html" class="externalLink" title="Dormant">
+    Dormant</a>
+                    </li>
+                 </ul>
+      <ul class="nav nav-list">
+                                  <li class="nav-header">General Information</li>
+                                        <li class="none">
+                  <a href="http://commons.apache.org/security.html" class="externalLink" title="Security">
+    Security</a>
+          </li>
+                             <li class="none">
+                  <a href="http://commons.apache.org/volunteering.html" class="externalLink" title="Volunteering">
+    Volunteering</a>
+          </li>
+                             <li class="none">
+                  <a href="http://commons.apache.org/patches.html" class="externalLink" title="Contributing Patches">
+    Contributing Patches</a>
+          </li>
+                             <li class="none">
+                  <a href="http://commons.apache.org/building.html" class="externalLink" title="Building Components">
+    Building Components</a>
+          </li>
+                             <li class="none">
+                  <a href="http://commons.apache.org/commons-parent-pom.html" class="externalLink" title="Commons Parent Pom">
+    Commons Parent Pom</a>
+          </li>
+                             <li class="none">
+                  <a href="http://commons.apache.org/build-plugin/index.html" class="externalLink" title="Commons Build Plugin">
+    Commons Build Plugin</a>
+          </li>
+                             <li class="none">
+                  <a href="http://commons.apache.org/releases/index.html" class="externalLink" title="Releasing Components">
+    Releasing Components</a>
+          </li>
+                             <li class="none">
+                  <a href="http://wiki.apache.org/commons/FrontPage" class="externalLink" title="Wiki">
+    Wiki</a>
+          </li>
+                 </ul>
+      <ul class="nav nav-list">
+                                  <li class="nav-header">ASF</li>
+                                        <li class="none">
+                  <a href="http://www.apache.org/foundation/how-it-works.html" class="externalLink" title="How the ASF works">
+    How the ASF works</a>
+          </li>
+                             <li class="none">
+                  <a href="http://www.apache.org/foundation/getinvolved.html" class="externalLink" title="Get Involved">
+    Get Involved</a>
+          </li>
+                             <li class="none">
+                  <a href="http://www.apache.org/dev/" class="externalLink" title="Developer Resources">
+    Developer Resources</a>
+          </li>
+                             <li class="none">
+                  <a href="http://www.apache.org/foundation/sponsorship.html" class="externalLink" title="Sponsorship">
+    Sponsorship</a>
+          </li>
+                             <li class="none">
+                  <a href="http://www.apache.org/foundation/thanks.html" class="externalLink" title="Thanks">
+    Thanks</a>
+          </li>
+                 </ul>
+              </div>
+            <div id="poweredBy">
+                                                                                                                    <a href="http://www.apache.org/events/current-event.html" title="ApacheCon" class="builtBy">
+        <img class="builtBy" alt="ApacheCon" src="./DbUtils – JDBC Utility Component -- Examples_files/current-event-125x125.png">
+      </a>
+                                                                                                    <a href="http://maven.apache.org/" title="Maven" class="builtBy">
+        <img class="builtBy" alt="Maven" src="./DbUtils – JDBC Utility Component -- Examples_files/maven-feather.png">
+      </a>
+                      </div>
+          </td>
+          <td class="content">
+            <!-- Licensed to the Apache Software Foundation (ASF) under one or more
+ contributor license agreements.  See the NOTICE file distributed with
+ this work for additional information regarding copyright ownership.
+ The ASF licenses this file to You under the Apache License, Version 2.0
+ (the "License"); you may not use this file except in compliance with
+ the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License. -->
+
+ 
+
+<div class="section">
+<h2><a name="DbUtils:_JDBC_Utility_Component_Examples"></a>DbUtils: JDBC Utility Component Examples</h2>
+
+<p>
+This page provides examples that show how DbUtils may be used.
+</p>
+</div>
+
+
+<div class="section">
+<h2><a name="Basic_Usage"></a>Basic Usage</h2>
+
+<p>
+DbUtils is a very small library of classes so it won't take long 
+to go through the <a href="http://commons.apache.org/proper/commons-dbutils/apidocs/">javadocs</a> for each class.  
+The core classes/interfaces in DbUtils are 
+<tt><a href="http://commons.apache.org/proper/commons-dbutils/apidocs/org/apache/commons/dbutils/QueryRunner.html">QueryRunner</a></tt>
+and
+<tt><a href="http://commons.apache.org/proper/commons-dbutils/apidocs/org/apache/commons/dbutils/ResultSetHandler.html">ResultSetHandler</a></tt>.
+You don't need to know about any other DbUtils classes to benefit from using the 
+library.  The following example demonstrates how these classes are used together.
+</p>
+
+
+<div class="source"><span class="pln"><span class="pln"><br></span></span><pre><span class="pln"><span class="pln"><br></span></span><span class="com"><span class="com">// Create a ResultSetHandler implementation to convert the</span></span><span class="pln"><span class="pln"><br></span></span><span class="com"><span class="com">// first row into an Object[].</span></span><span class="pln"><span class="pln"><br></span></span><span class="typ"><span class="typ">ResultSetHandler</span></span><span class="pun"><span class="pun">&lt;</span></span><span class="typ"><span class="typ">Object</span></span><span class="pun"><span class="pun">[]&gt;</span></span><span class="pln"><span class="pln"> h </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">new</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">ResultSetHandler</span></span><span class="pun"><span class="pun">&lt;</span></span><span class="typ"><span class="typ">Object</span></span><span class="pun"><span class="pun">[]&gt;()</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">{</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="kwd"><span class="kwd">public</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">Object</span></span><span class="pun"><span class="pun">[]</span></span><span class="pln"><span class="pln"> handle</span></span><span class="pun"><span class="pun">(</span></span><span class="typ"><span class="typ">ResultSet</span></span><span class="pln"><span class="pln"> rs</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">throws</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">SQLException</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">{</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span></span><span class="kwd"><span class="kwd">if</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">(!</span></span><span class="pln"><span class="pln">rs</span></span><span class="pun"><span class="pun">.</span></span><span class="kwd"><span class="kwd">next</span></span><span class="pun"><span class="pun">())</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">{</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span><span class="kwd"><span class="kwd">return</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">null</span></span><span class="pun"><span class="pun">;</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span></span><span class="pun"><span class="pun">}</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; </span></span><span class="typ"><span class="typ">ResultSetMetaData</span></span><span class="pln"><span class="pln"> meta </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> rs</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">getMetaData</span></span><span class="pun"><span class="pun">();</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span></span><span class="kwd"><span class="kwd">int</span></span><span class="pln"><span class="pln"> cols </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> meta</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">getColumnCount</span></span><span class="pun"><span class="pun">();</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span></span><span class="typ"><span class="typ">Object</span></span><span class="pun"><span class="pun">[]</span></span><span class="pln"><span class="pln"> result </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">new</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">Object</span></span><span class="pun"><span class="pun">[</span></span><span class="pln"><span class="pln">cols</span></span><span class="pun"><span class="pun">];</span></span><span class="pln"><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; </span></span><span class="kwd"><span class="kwd">for</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">(</span></span><span class="kwd"><span class="kwd">int</span></span><span class="pln"><span class="pln"> i </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="lit"><span class="lit">0</span></span><span class="pun"><span class="pun">;</span></span><span class="pln"><span class="pln"> i </span></span><span class="pun"><span class="pun">&lt;</span></span><span class="pln"><span class="pln"> cols</span></span><span class="pun"><span class="pun">;</span></span><span class="pln"><span class="pln"> i</span></span><span class="pun"><span class="pun">++)</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">{</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; result</span></span><span class="pun"><span class="pun">[</span></span><span class="pln"><span class="pln">i</span></span><span class="pun"><span class="pun">]</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> rs</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">getObject</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">i </span></span><span class="pun"><span class="pun">+</span></span><span class="pln"><span class="pln"> </span></span><span class="lit"><span class="lit">1</span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span></span><span class="pun"><span class="pun">}</span></span><span class="pln"><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; </span></span><span class="kwd"><span class="kwd">return</span></span><span class="pln"><span class="pln"> result</span></span><span class="pun"><span class="pun">;</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="pun"><span class="pun">}</span></span><span class="pln"><span class="pln"><br></span></span><span class="pun"><span class="pun">};</span></span><span class="pln"><span class="pln"><br><br></span></span><span class="com"><span class="com">// Create a QueryRunner that will use connections from</span></span><span class="pln"><span class="pln"><br></span></span><span class="com"><span class="com">// the given DataSource</span></span><span class="pln"><span class="pln"><br></span></span><span class="typ"><span class="typ">QueryRunner</span></span><span class="pln"><span class="pln"> run </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">new</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">QueryRunner</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">dataSource</span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln"><br><br></span></span><span class="com"><span class="com">// Execute the query and get the results back from the handler</span></span><span class="pln"><span class="pln"><br></span></span><span class="typ"><span class="typ">Object</span></span><span class="pun"><span class="pun">[]</span></span><span class="pln"><span class="pln"> result </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> run</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">query</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="str"><span class="str">"SELECT * FROM Person WHERE name=?"</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"> h</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">"John Doe"</span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln"><br><br></span></span></pre></div>
+
+
+
+<p>
+You could also perform the previous query using a <tt>java.sql.Connection</tt> object
+instead of a <tt>DataSource</tt>.  Notice that you are responsible for closing the
+<tt>Connection</tt> in this example.
+</p>
+
+<div class="source"><span class="pln"><span class="pln"><br></span></span><pre><span class="pln"><span class="pln"><br></span></span><span class="typ"><span class="typ">ResultSetHandler</span></span><span class="pun"><span class="pun">&lt;</span></span><span class="typ"><span class="typ">Object</span></span><span class="pun"><span class="pun">[]&gt;</span></span><span class="pln"><span class="pln"> h </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">...</span></span><span class="pln"><span class="pln"> </span></span><span class="com"><span class="com">// Define a handler the same as above example</span></span><span class="pln"><span class="pln"><br><br></span></span><span class="com"><span class="com">// No DataSource so we must handle Connections manually</span></span><span class="pln"><span class="pln"><br></span></span><span class="typ"><span class="typ">QueryRunner</span></span><span class="pln"><span class="pln"> run </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">new</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">QueryRunner</span></span><span class="pun"><span class="pun">();</span></span><span class="pln"><span class="pln"><br><br></span></span><span class="typ"><span class="typ">Connection</span></span><span class="pln"><span class="pln"> conn </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">...</span></span><span class="pln"><span class="pln"> </span></span><span class="com"><span class="com">// open a connection</span></span><span class="pln"><span class="pln"><br></span></span><span class="kwd"><span class="kwd">try</span></span><span class="pun"><span class="pun">{</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="typ"><span class="typ">Object</span></span><span class="pun"><span class="pun">[]</span></span><span class="pln"><span class="pln"> result </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> run</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">query</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; conn</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">"SELECT * FROM Person WHERE name=?"</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"> h</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">"John Doe"</span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="com"><span class="com">// do something with the result</span></span><span class="pln"><span class="pln"><br></span></span><span class="pun"><span class="pun">}</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">finally</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">{</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="com"><span class="com">// Use this helper method so we don't have to check for null</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="typ"><span class="typ">DbUtils</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">close</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">conn</span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln"> &nbsp;<br></span></span><span class="pun"><span class="pun">}</span></span><span class="pln"><span class="pln"><br><br></span></span></pre></div>
+
+
+<p>
+  You can not only fetch data from the database - you can also insert or update
+  data. The following example will first insert a person into the database and
+  after that change the person's height. 
+</p>
+
+
+<div class="source"><span class="pln"><span class="pln"><br></span></span><pre><span class="pln"><span class="pln"><br></span></span><span class="typ"><span class="typ">QueryRunner</span></span><span class="pln"><span class="pln"> run </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">new</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">QueryRunner</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln"> dataSource </span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln"><br></span></span><span class="kwd"><span class="kwd">try</span></span><span class="pln"><span class="pln"><br></span></span><span class="pun"><span class="pun">{</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="com"><span class="com">// Execute the SQL update statement and return the number of</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="com"><span class="com">// inserts that were made</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="kwd"><span class="kwd">int</span></span><span class="pln"><span class="pln"> inserts </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> run</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">update</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">"INSERT INTO Person (name,height) VALUES (?,?)"</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span><span class="str"><span class="str">"John Doe"</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"> </span></span><span class="lit"><span class="lit">1.82</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="com"><span class="com">// The line before uses varargs and autoboxing to simplify the code</span></span><span class="pln"><span class="pln"><br><br>&nbsp; &nbsp; </span></span><span class="com"><span class="com">// Now it's time to rise to the occation...</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="kwd"><span class="kwd">int</span></span><span class="pln"><span class="pln"> updates </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> run</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">update</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">"UPDATE Person SET height=? WHERE name=?"</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span><span class="lit"><span class="lit">2.05</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">"John Doe"</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="com"><span class="com">// So does the line above</span></span><span class="pln"><span class="pln"><br></span></span><span class="pun"><span class="pun">}</span></span><span class="pln"><span class="pln"><br></span></span><span class="kwd"><span class="kwd">catch</span></span><span class="pun"><span class="pun">(</span></span><span class="typ"><span class="typ">SQLException</span></span><span class="pln"><span class="pln"> sqle</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">{</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="com"><span class="com">// Handle it</span></span><span class="pln"><span class="pln"><br></span></span><span class="pun"><span class="pun">}</span></span><span class="pln"><span class="pln"><br><br></span></span></pre></div>
+
+
+<p>
+  For long running calls you can use the <tt>AsyncQueryRunner</tt> to execute
+  the calls asynchronously. The <tt>AsyncQueryRunner</tt> class has the same
+  methods as the <tt>QueryRunner</tt> calls; however, the methods return a
+  <tt>Callable</tt>. 
+</p>
+
+
+<div class="source"><span class="pln"><span class="pln"><br></span></span><pre><span class="pln"><span class="pln"><br></span></span><span class="typ"><span class="typ">ExecutorCompletionService</span></span><span class="pun"><span class="pun">&lt;</span></span><span class="typ"><span class="typ">Integer</span></span><span class="pun"><span class="pun">&gt;</span></span><span class="pln"><span class="pln"> executor </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="kwd"><span class="kwd">new</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">ExecutorCompletionService</span></span><span class="pun"><span class="pun">&lt;</span></span><span class="typ"><span class="typ">Integer</span></span><span class="pun"><span class="pun">&gt;(</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">Executors</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">newCachedThreadPool</span></span><span class="pun"><span class="pun">()</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln"><br></span></span><span class="typ"><span class="typ">AsyncQueryRunner</span></span><span class="pln"><span class="pln"> asyncRun </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">new</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">AsyncQueryRunner</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln"> dataSource </span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln"><br><br></span></span><span class="kwd"><span class="kwd">try</span></span><span class="pln"><span class="pln"><br></span></span><span class="pun"><span class="pun">{</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="com"><span class="com">// Create a Callable for the update call</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="typ"><span class="typ">Callable</span></span><span class="pun"><span class="pun">&lt;</span></span><span class="typ"><span class="typ">Integer</span></span><span class="pun"><span class="pun">&gt;</span></span><span class="pln"><span class="pln"> callable </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> asyncRun</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">update</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">"UPDATE Person SET height=? WHERE name=?"</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></span><span class="lit"><span class="lit">2.05</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">"John Doe"</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="com"><span class="com">// Submit the Callable to the executor</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; executor</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">submit</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln"> callable </span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln"><br></span></span><span class="pun"><span class="pun">}</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">catch</span></span><span class="pun"><span class="pun">(</span></span><span class="typ"><span class="typ">SQLException</span></span><span class="pln"><span class="pln"> sqle</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">{</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="com"><span class="com">// Handle it</span></span><span class="pln"><span class="pln"><br></span></span><span class="pun"><span class="pun">}</span></span><span class="pln"><span class="pln"><br><br></span></span><span class="com"><span class="com">// Sometime later (or in another thread)</span></span><span class="pln"><span class="pln"><br></span></span><span class="kwd"><span class="kwd">try</span></span><span class="pln"><span class="pln"><br></span></span><span class="pun"><span class="pun">{</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp;</span></span><span class="com"><span class="com">// Get the result of the update</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp;</span></span><span class="typ"><span class="typ">Integer</span></span><span class="pln"><span class="pln"> updates </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> executor</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">take</span></span><span class="pun"><span class="pun">().</span></span><span class="kwd"><span class="kwd">get</span></span><span class="pun"><span class="pun">();</span></span><span class="pln"><span class="pln"><br></span></span><span class="pun"><span class="pun">}</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">catch</span></span><span class="pun"><span class="pun">(</span></span><span class="typ"><span class="typ">InterruptedException</span></span><span class="pln"><span class="pln"> ie</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">{</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="com"><span class="com">// Handle it</span></span><span class="pln"><span class="pln"><br></span></span><span class="pun"><span class="pun">}</span></span><span class="pln"><span class="pln"><br><br></span></span></pre></div>
+
+
+</div>
+
+
+
+<div class="section">
+<h2><a name="ResultSetHandler_Implementations"></a>ResultSetHandler Implementations</h2>
+
+<p>
+In the examples above we implemented the <tt>ResultSetHandler</tt> interface
+to turn the first row of the <tt>ResultSet</tt> into an Object[].  This is a
+fairly generic implementation that can be reused across many projects.
+In recognition of this DbUtils provides a set of <tt>ResultSetHandler</tt>
+implementations in the 
+<a href="http://commons.apache.org/proper/commons-dbutils/apidocs/org/apache/commons/dbutils/handlers/package-summary.html">org.apache.commons.dbutils.handlers</a> 
+package that perform common transformations into arrays, Maps, and JavaBeans.
+There is a version of each implementation that converts just the first row and 
+another that converts all rows in the <tt>ResultSet</tt>. 
+</p>
+
+
+<p>
+  We'll start with an example using the <tt>BeanHandler</tt> to fetch one
+  row from the <tt>ResultSet</tt> and turn it into a JavaBean. 
+</p>
+
+
+<div class="source"><span class="pln"><span class="pln"><br></span></span><pre><span class="pln"><span class="pln"><br></span></span><span class="typ"><span class="typ">QueryRunner</span></span><span class="pln"><span class="pln"> run </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">new</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">QueryRunner</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">dataSource</span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln"><br><br></span></span><span class="com"><span class="com">// Use the BeanHandler implementation to convert the first</span></span><span class="pln"><span class="pln"><br></span></span><span class="com"><span class="com">// ResultSet row into a Person JavaBean.</span></span><span class="pln"><span class="pln"><br></span></span><span class="typ"><span class="typ">ResultSetHandler</span></span><span class="pun"><span class="pun">&lt;</span></span><span class="typ"><span class="typ">Person</span></span><span class="pun"><span class="pun">&gt;</span></span><span class="pln"><span class="pln"> h </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">new</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">BeanHandler</span></span><span class="pun"><span class="pun">&lt;</span></span><span class="typ"><span class="typ">Person</span></span><span class="pun"><span class="pun">&gt;(</span></span><span class="typ"><span class="typ">Person</span></span><span class="pun"><span class="pun">.</span></span><span class="kwd"><span class="kwd">class</span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln"><br><br></span></span><span class="com"><span class="com">// Execute the SQL statement with one replacement parameter and</span></span><span class="pln"><span class="pln"><br></span></span><span class="com"><span class="com">// return the results in a new Person object generated by the BeanHandler.</span></span><span class="pln"><span class="pln"><br></span></span><span class="typ"><span class="typ">Person</span></span><span class="pln"><span class="pln"> p </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> run</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">query</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln"><br>&nbsp; &nbsp; </span></span><span class="str"><span class="str">"SELECT * FROM Person WHERE name=?"</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"> h</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">"John Doe"</span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln"> <br><br></span></span></pre></div>
+
+
+<p>
+  This time we will use the BeanListHandler to fetch all rows from the
+  <tt>ResultSet</tt> and turn them into a <tt>List</tt> of JavaBeans. 
+</p>
+
+
+<div class="source"><span class="pln"><span class="pln"><br></span></span><pre><span class="pln"><span class="pln"><br></span></span><span class="typ"><span class="typ">QueryRunner</span></span><span class="pln"><span class="pln"> run </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">new</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">QueryRunner</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">dataSource</span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln"><br><br></span></span><span class="com"><span class="com">// Use the BeanListHandler implementation to convert all</span></span><span class="pln"><span class="pln"><br></span></span><span class="com"><span class="com">// ResultSet rows into a List of Person JavaBeans.</span></span><span class="pln"><span class="pln"><br></span></span><span class="typ"><span class="typ">ResultSetHandler</span></span><span class="pun"><span class="pun">&lt;</span></span><span class="typ"><span class="typ">List</span></span><span class="pun"><span class="pun">&lt;</span></span><span class="typ"><span class="typ">Person</span></span><span class="pun"><span class="pun">&gt;&gt;</span></span><span class="pln"><span class="pln"> h </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="kwd"><span class="kwd">new</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">BeanListHandler</span></span><span class="pun"><span class="pun">&lt;</span></span><span class="typ"><span class="typ">Person</span></span><span class="pun"><span class="pun">&gt;(</span></span><span class="typ"><span class="typ">Person</span></span><span class="pun"><span class="pun">.</span></span><span class="kwd"><span class="kwd">class</span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln"><br><br></span></span><span class="com"><span class="com">// Execute the SQL statement and return the results in a List of</span></span><span class="pln"><span class="pln"><br></span></span><span class="com"><span class="com">// Person objects generated by the BeanListHandler.</span></span><span class="pln"><span class="pln"><br></span></span><span class="typ"><span class="typ">List</span></span><span class="pun"><span class="pun">&lt;</span></span><span class="typ"><span class="typ">Person</span></span><span class="pun"><span class="pun">&gt;</span></span><span class="pln"><span class="pln"> persons </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> run</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">query</span></span><span class="pun"><span class="pun">(</span></span><span class="str"><span class="str">"SELECT * FROM Person"</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"> h</span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln"><br><br></span></span></pre></div>
+
+</div>
+
+
+<div class="section">
+<h2><a name="Custom_RowProcessor"></a>Custom RowProcessor</h2>
+
+<p>
+Each of the provided <tt>ResultSetHandler</tt> implementations accept a 
+<a href="http://commons.apache.org/proper/commons-dbutils/apidocs/org/apache/commons/dbutils/RowProcessor.html">RowProcessor</a>
+to do the actual conversion of rows into objects.  By default the handlers
+use the <a href="http://commons.apache.org/proper/commons-dbutils/apidocs/org/apache/commons/dbutils/BasicRowProcessor.html">BasicRowProcessor</a> 
+implementation but you can implement a custom version to plug in.
+Probably the most common customization is to implement the <tt>toBean()</tt>
+method to handle custom database datatype issues.
+</p>
+</div>
+
+
+<div class="section">
+<h2><a name="Custom_BeanProcessor"></a>Custom BeanProcessor</h2>
+
+<p>
+<tt>BasicRowProcessor</tt> uses a <a href="http://commons.apache.org/proper/commons-dbutils/apidocs/org/apache/commons/dbutils/BeanProcessor.html">BeanProcessor</a>
+to convert <tt>ResultSet</tt> columns into JavaBean properties.  You can 
+subclass and override processing steps to handle datatype mapping specific to 
+your application.  The provided implementation delegates datatype conversion to 
+the JDBC driver.
+</p>
+
+<p>
+BeanProcessor maps columns to bean properties as documented in the 
+<a href="http://commons.apache.org/proper/commons-dbutils/apidocs/org/apache/commons/dbutils/BeanProcessor.html#toBeanjava.sql.ResultSet20java.lang.Class">BeanProcessor.toBean()</a> javadoc.  
+Column names must match the bean's property names case insensitively.  
+For example, the <tt>firstname</tt> column would be stored in the bean 
+by calling its <tt>setFirstName()</tt> method.  However, many database 
+column names include characters that either can't be used or are not typically 
+used in Java method names.  You can do one of the following to map 
+these columns to bean properties:
+</p>
+<ol style="list-style-type: decimal">
+    
+<li>
+        Alias the column names in the SQL so they match the Java names:  
+        <tt>select social_sec# as socialSecurityNumber from person</tt>
+    </li>
+    
+<li>
+        Subclass BeanProcessor and override the <a href="http://commons.apache.org/proper/commons-dbutils/apidocs/org/apache/commons/dbutils/BeanProcessor.html#mapColumnsToPropertiesjava.sql.ResultSetMetaData20java.beans.PropertyDescriptor">mapColumnsToProperties()</a> 
+        method to strip out the offending characters.
+    </li>
+</ol>
+
+</div>
+
+
+
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+
+    <div class="footer">
+      <p>Copyright ©                    2002-2017
+                        <a href="http://www.apache.org/">The Apache Software Foundation</a>.
+            All Rights Reserved.</p>
+                                                                  
+<div class="center">Apache Commons, Apache Commons DbUtils, Apache, the Apache feather logo, and the Apache Commons project logos are trademarks of The Apache Software Foundation.
+      All other marks mentioned may be trademarks or registered trademarks of their respective owners.</div>
+                              </div>
+  
+
+</body></html>

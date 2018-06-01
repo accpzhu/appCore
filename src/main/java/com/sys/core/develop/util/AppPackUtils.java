@@ -9,7 +9,7 @@ public class AppPackUtils {
 	
 	public static void main(String args[]){
 		
-		new AppPackUtils().createAppRunBat("com.ui.run.RunApp", "D:/temp/lib/");
+		new AppPackUtils().createAppRunBat("com.berheley.monitor.run.Run", "E:\\temp\\monitor_for_log\\lib\\");
 	}
 	
 	public void createAppRunBat(String mainMethodName,String classpathFileName){

@@ -21,6 +21,8 @@ import org.jdom2.xpath.XPath;
  */
 public class XMLJdomUtil {
 	
+	private Document doc;
+	private XMLOutputter out = new XMLOutputter();
 	
 	/**
 	 * 获取xml文件root节点
@@ -35,9 +37,7 @@ public class XMLJdomUtil {
 		
 		  SAXBuilder sb = new SAXBuilder();
 		  
-		  Document doc;
-
-		  doc = sb.build(new FileInputStream(new File(filePath)));
+		  this.doc = sb.build(new FileInputStream(new File(filePath)));
 
 		  return doc.getRootElement();
 	}
@@ -50,9 +50,8 @@ public class XMLJdomUtil {
 	 * @throws IOException 
 	 * @throws FileNotFoundException 
 	 */
-	public void xmlOutForPath(Document doc,String filePath) throws FileNotFoundException, IOException{
+	public void xmlOutForPath(String filePath) throws FileNotFoundException, IOException{
 		
-		 XMLOutputter out = new XMLOutputter();
 		 
 		 out.output(doc,new FileOutputStream(new File(filePath)));
 	}
